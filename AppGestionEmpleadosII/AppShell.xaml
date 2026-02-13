@@ -8,9 +8,11 @@
 
     <TabBar>
         <ShellContent Title="Home" ContentTemplate="{DataTemplate pages:MainPage}" Route="MainPage" />
-        <ShellContent Title="Empleados" ContentTemplate="{DataTemplate pages:EmpleadosPage}" Route="EmpleadosPage" />
-        <ShellContent Title="Departamentos" ContentTemplate="{DataTemplate pages:DepartamentosPage}" Route="DepartamentosPage" />
-        <ShellContent Title="Sedes" ContentTemplate="{DataTemplate pages:SedesPage}" Route="SedesPage" />
+        <Tab Title="Listados">
+            <ShellContent Title="Empleados" ContentTemplate="{DataTemplate pages:EmpleadosPage}" Route="EmpleadosPage" />
+            <ShellContent Title="Departamentos" ContentTemplate="{DataTemplate pages:DepartamentosPage}" Route="DepartamentosPage" />
+            <ShellContent Title="Sedes" ContentTemplate="{DataTemplate pages:SedesPage}" Route="SedesPage" />
+        </Tab>
         <ShellContent Title="Graficos" ContentTemplate="{DataTemplate pages:GraficosPage}" Route="GraficosPage" />
         <ShellContent Title="Configuracion" ContentTemplate="{DataTemplate pages:SettingsPage}" Route="SettingsPage" />
     </TabBar>

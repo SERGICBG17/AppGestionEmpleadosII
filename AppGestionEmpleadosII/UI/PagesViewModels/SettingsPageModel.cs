@@ -1,4 +1,5 @@
 ﻿namespace AppGestionEmpleadosII.UI.PagesViewModels;
-internal class SettingsPageModel
+
+public class SettingsPageModel
 {
 }

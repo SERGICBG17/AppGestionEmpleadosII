@@ -1,4 +1,6 @@
-﻿using AppGestionEmpleadosII.UI.Pages;
+﻿using AppGestionEmpleadosII.Models;
+using AppGestionEmpleadosII.Services;
+using AppGestionEmpleadosII.UI.Pages;
 using AppGestionEmpleadosII.UI.PagesViewModels;
 using Microsoft.Extensions.Logging;
 
@@ -21,19 +23,23 @@ namespace AppGestionEmpleadosII
     		builder.Logging.AddDebug();
 #endif
 
+            builder.Services.AddSingleton<EmpleadoService>();
+            builder.Services.AddSingleton<DepartamentoService>();
+            builder.Services.AddSingleton<SedeService>();
+
             builder.Services.AddTransient<MainPageModel>();
-            //builder.Services.AddTransient<DepartamentosPageModel>();
-            //builder.Services.AddTransient<EmpleadosPageModel>();
-            //builder.Services.AddTransient<GraficosPageModel>();
-            //builder.Services.AddTransient<SedesPageModel>();
-            //builder.Services.AddTransient<SettingsPageModel>();
+            builder.Services.AddTransient<DepartamentosPageModel>();
+            builder.Services.AddTransient<EmpleadosPageModel>();
+            builder.Services.AddTransient<GraficosPageModel>();
+            builder.Services.AddTransient<SedesPageModel>();
+            builder.Services.AddTransient<SettingsPageModel>();
 
             builder.Services.AddTransient<MainPage>();
-            //builder.Services.AddTransient<DepartamentosPage>();
-            //builder.Services.AddTransient<EmpleadosPage>();
-            //builder.Services.AddTransient<GraficosPage>();
-            //builder.Services.AddTransient<SedesPage>();
-            //builder.Services.AddTransient<SettingsPage>();
+            builder.Services.AddTransient<DepartamentosPage>();
+            builder.Services.AddTransient<EmpleadosPage>();
+            builder.Services.AddTransient<GraficosPage>();
+            builder.Services.AddTransient<SedesPage>();
+            builder.Services.AddTransient<SettingsPage>();
 
             return builder.Build();
         }

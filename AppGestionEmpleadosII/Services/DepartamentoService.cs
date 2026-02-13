@@ -1,9 +1,16 @@
 ﻿using AppGestionEmpleadosII.Models;
+using System.Net.Http.Json;
+using System.Text.Json;
 
 namespace AppGestionEmpleadosII.Services;
 
 public class DepartamentoService : IService<Departamento>
 {
+    private HttpClient client = new HttpClient();
+    private JsonSerializerOptions serializerOptions = new JsonSerializerOptions
+    {
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+    };
     public void Add(Departamento item)
     {
         throw new NotImplementedException();
@@ -21,7 +28,7 @@ public class DepartamentoService : IService<Departamento>
 
     public List<Departamento> GetAll()
     {
-        throw new NotImplementedException();
+        return client.GetFromJsonAsync<List<Departamento>>("http://localhost:8080/departamentos/").Result;
     }
 
     public void Update(Departamento item)

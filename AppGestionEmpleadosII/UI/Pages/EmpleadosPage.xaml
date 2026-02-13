@@ -2,11 +2,57 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppGestionEmpleadosII.UI.Pages.EmpleadosPage"
-             Title="EmpleadosPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Empleados"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
-</ContentPage>
+             Title="Empleados">
+
+        <ScrollView>
+            <FlexLayout BindableLayout.ItemsSource="{Binding Empleados}"
+                    Wrap="Wrap"
+                    Direction="Row"
+                    JustifyContent="Start"
+                    AlignItems="Start"
+                    AlignContent="Start"
+                    Margin="10">
+
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="8"
+                           HasShadow="True"
+                           BorderColor="#D1D1D1"
+                           Padding="8"
+                           Margin="5"
+                           BackgroundColor="White"
+                           WidthRequest="220"
+                           HeightRequest="100">
+
+                            <HorizontalStackLayout Spacing="10">
+                                <Border StrokeShape="RoundRectangle 4"
+                                    StrokeThickness="0"
+                                    WidthRequest="80"
+                                    HeightRequest="80">
+                                    <Image Source="{Binding ImagenUri}"
+                                       Aspect="AspectFill"
+                                       WidthRequest="80"
+                                       HeightRequest="80" />
+                                </Border>
+
+                                <VerticalStackLayout VerticalOptions="Center" Spacing="2">
+                                    <Label Text="{Binding Nombre}"
+                                       FontAttributes="Bold"
+                                       FontSize="14"
+                                       TextColor="Black"
+                                       LineBreakMode="TailTruncation"
+                                       WidthRequest="110"/>
+
+                                    <Label Text="{Binding Departamento.Nombre}"
+                                       FontSize="11"
+                                       TextColor="Gray"
+                                       LineBreakMode="CharacterWrap"
+                                       WidthRequest="110"/>
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </FlexLayout>
+        </ScrollView>
+    </ContentPage>

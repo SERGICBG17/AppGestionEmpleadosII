@@ -1,29 +1,39 @@
 ﻿
+using AppGestionEmpleadosII.Models;
+using System.Net.Http.Json;
+using System.Text.Json;
+
 namespace AppGestionEmpleadosII.Services;
 
-public class EmpleadoService : IService<EmpleadoService>
+public class EmpleadoService : IService<Empleado>
 {
-    public void Add(EmpleadoService item)
+    private HttpClient client = new HttpClient();
+    private JsonSerializerOptions serializerOptions = new JsonSerializerOptions
+    {
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+    };
+
+    public void Add(Empleado item)
     {
         throw new NotImplementedException();
     }
 
-    public void Delete(EmpleadoService item)
+    public void Delete(Empleado item)
     {
         throw new NotImplementedException();
     }
 
-    public EmpleadoService Get(int id)
+    public Empleado Get(int id)
     {
         throw new NotImplementedException();
     }
 
-    public List<EmpleadoService> GetAll()
+    public List<Empleado> GetAll()
     {
-        throw new NotImplementedException();
+        return client.GetFromJsonAsync<List<Empleado>>("http://localhost:8080/empleados/").Result;
     }
 
-    public void Update(EmpleadoService item)
+    public void Update(Empleado item)
     {
         throw new NotImplementedException();
     }
