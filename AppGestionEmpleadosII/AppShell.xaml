@@ -3,7 +3,7 @@
     x:Class="AppGestionEmpleadosII.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:pages="clr-namespace:AppGestionEmpleadosII.Pages"
+    xmlns:pages="clr-namespace:AppGestionEmpleadosII.UI.Pages"
     Title="AppGestionEmpleadosII">
 
     <TabBar>
@@ -11,6 +11,7 @@
         <ShellContent Title="Empleados" ContentTemplate="{DataTemplate pages:EmpleadosPage}" Route="EmpleadosPage" />
         <ShellContent Title="Departamentos" ContentTemplate="{DataTemplate pages:DepartamentosPage}" Route="DepartamentosPage" />
         <ShellContent Title="Sedes" ContentTemplate="{DataTemplate pages:SedesPage}" Route="SedesPage" />
+        <ShellContent Title="Graficos" ContentTemplate="{DataTemplate pages:GraficosPage}" Route="GraficosPage" />
         <ShellContent Title="Configuracion" ContentTemplate="{DataTemplate pages:SettingsPage}" Route="SettingsPage" />
     </TabBar>
 

@@ -1,4 +1,4 @@
-namespace AppGestionEmpleadosII.Pages;
+namespace AppGestionEmpleadosII.UI.Pages;
 
 public partial class SedesPage : ContentPage
 {

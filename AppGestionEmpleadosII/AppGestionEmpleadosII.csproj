@@ -63,20 +63,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Services\" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="Pages\DepartamentosPage.xaml">
+	  <MauiXaml Update="UI\Pages\DepartamentosPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\EmpleadosPage.xaml">
+	  <MauiXaml Update="UI\Pages\EmpleadosPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\SedesPage.xaml">
+	  <MauiXaml Update="UI\Pages\GraficosPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\SettingsPage.xaml">
+	  <MauiXaml Update="UI\Pages\SedesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UI\Pages\SettingsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

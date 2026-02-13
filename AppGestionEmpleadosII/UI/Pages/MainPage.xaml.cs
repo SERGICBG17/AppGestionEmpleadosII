@@ -1,6 +1,6 @@
-﻿using AppGestionEmpleadosII.PagesViewModels;
+﻿using AppGestionEmpleadosII.UI.PagesViewModels;
 
-namespace AppGestionEmpleadosII.Pages;
+namespace AppGestionEmpleadosII.UI.Pages;
 
 public partial class MainPage : ContentPage
 {
