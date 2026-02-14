@@ -15,6 +15,9 @@ public class Empleado
     public string Correo { get; set; }
     public int Telefono { get; set; }
 
+    [JsonPropertyName("departamento_id")]
+    public int DepartamentoId { get; set; }
+
     public Departamento Departamento { get; set; }
 
 }

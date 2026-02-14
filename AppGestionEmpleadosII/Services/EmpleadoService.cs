@@ -30,7 +30,42 @@ public class EmpleadoService : IService<Empleado>
 
     public List<Empleado> GetAll()
     {
-        return client.GetFromJsonAsync<List<Empleado>>("http://localhost:8080/empleados/").Result;
+        List<Empleado> devolverEmpleados = new List<Empleado>();
+        try
+        {
+            HttpResponseMessage empResponse = client.GetAsync("http://localhost:8080/empleados/").Result;
+            string empJson = empResponse.Content.ReadAsStringAsync().Result;
+            List<Empleado> empleados = JsonSerializer.Deserialize<List<Empleado>>(empJson, serializerOptions);
+
+            HttpResponseMessage deptResponse = client.GetAsync("http://localhost:8080/departamentos/").Result;
+            string deptJson = deptResponse.Content.ReadAsStringAsync().Result;
+            List<Departamento> departamentos = JsonSerializer.Deserialize<List<Departamento>>(deptJson, serializerOptions);
+
+            
+            if (empleados != null && departamentos != null)
+            {
+                foreach (Empleado emp in empleados)
+                {
+                    foreach (Departamento dept in departamentos)
+                    {
+                        if (dept.Id == emp.DepartamentoId)
+                        {
+                            emp.Departamento = dept;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if (empleados != null)
+            {
+                devolverEmpleados = empleados;
+            }
+
+        }
+        catch (Exception ex){}
+
+        return devolverEmpleados;
     }
 
     public void Update(Empleado item)

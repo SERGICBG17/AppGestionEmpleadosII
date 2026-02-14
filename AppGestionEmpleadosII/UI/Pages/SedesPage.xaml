@@ -4,21 +4,43 @@
              x:Class="AppGestionEmpleadosII.UI.Pages.SedesPage"
              Title="Sedes">
 
-    <Grid>
-        <BindableLayout.ItemTemplate>
-            <DataTemplate>
-                <Frame WidthRequest="250" HeightRequest="130" Margin="10" Padding="0" CornerRadius="12" HasShadow="True" BorderColor="#512BD4">
-                    <Grid RowDefinitions="Auto, *">
-                        <BoxView Grid.Row="0" HeightRequest="5" Color="#512BD4"/>
-                        <VerticalStackLayout Grid.Row="1" Padding="15" Spacing="5">
-                            <HorizontalStackLayout Spacing="10">
-                                <Label Text="{Binding Nombre}" FontSize="16" FontAttributes="Bold" TextColor="Black"/>
-                            </HorizontalStackLayout>
-                            <Label Text="{Binding Direccion}" FontSize="12" TextColor="#444" LineBreakMode="WordWrap"/>
+    <ScrollView>
+        <FlexLayout BindableLayout.ItemsSource="{Binding Sedes}"
+                    Wrap="Wrap"
+                    Direction="Row"
+                    JustifyContent="Center" 
+                    AlignItems="Center"
+                    AlignContent="Start"
+                    Margin="10">
+
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <Frame CornerRadius="8"
+                           HasShadow="True"
+                           BorderColor="#D1D1D1"
+                           Padding="15"
+                           Margin="10"
+                           BackgroundColor="White"
+                           WidthRequest="300"
+                           MinimumHeightRequest="110">
+
+                        <VerticalStackLayout Spacing="5" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Label Text="{Binding Nombre}"
+                                   FontAttributes="Bold"
+                                   FontSize="17"
+                                   TextColor="Black"
+                                   HorizontalTextAlignment="Center"
+                                   LineBreakMode="WordWrap"/>
+
+                            <Label Text="{Binding Direccion}"
+                                   FontSize="13"
+                                   TextColor="Gray"
+                                   HorizontalTextAlignment="Center"
+                                   LineBreakMode="WordWrap"/>
                         </VerticalStackLayout>
-                    </Grid>
-                </Frame>
-            </DataTemplate>
-        </BindableLayout.ItemTemplate>
-    </Grid>
+                    </Frame>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </FlexLayout>
+    </ScrollView>
 </ContentPage>

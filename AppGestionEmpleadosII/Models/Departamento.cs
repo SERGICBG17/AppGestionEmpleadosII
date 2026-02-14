@@ -1,4 +1,6 @@
-﻿namespace AppGestionEmpleadosII.Models;
+﻿using System.Text.Json.Serialization;
+
+namespace AppGestionEmpleadosII.Models;
 public class Departamento
 {
     public int Id { get; set; }
@@ -6,6 +8,9 @@ public class Departamento
     public string Correo { get; set; }
     public int Telefono { get; set; }
     public float Ganancias { get; set; }
+
+    [JsonPropertyName("sede_id")]
+    public int SedeId { get; set; }
 
     public Sede Sede { get; set; }
 

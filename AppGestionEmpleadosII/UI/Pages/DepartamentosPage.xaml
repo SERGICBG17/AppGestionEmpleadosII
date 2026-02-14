@@ -4,17 +4,49 @@
              x:Class="AppGestionEmpleadosII.UI.Pages.DepartamentosPage"
              Title="Departamentos">
 
-    <Grid Margin="10">
-        <BindableLayout.ItemTemplate>
-            <DataTemplate>
-                <Frame WidthRequest="220" HeightRequest="140" Margin="8" Padding="15" CornerRadius="10" HasShadow="True" BackgroundColor="White">
-                    <VerticalStackLayout Spacing="5" VerticalOptions="Center">
-                        <Label Text="{Binding Nombre}" FontAttributes="Bold" FontSize="15" HorizontalTextAlignment="Center" TextColor="Black"/>
-                        <Label Text="{Binding Correo}" FontSize="11" TextColor="Gray" HorizontalTextAlignment="Center"/>
-                        <Label Text="{Binding Ganancias, StringFormat='{0:C} ganancias'}" FontSize="11" TextColor="#27ae60" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
-                    </VerticalStackLayout>
-                </Frame>
-            </DataTemplate>
-        </BindableLayout.ItemTemplate>
-    </Grid>
+    <ScrollView>
+        <FlexLayout BindableLayout.ItemsSource="{Binding Departamentos}"
+                    Wrap="Wrap"
+                    Direction="Row"
+                    JustifyContent="Center" 
+                    AlignItems="Center"
+                    AlignContent="Start"
+                    Margin="10">
+
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <Frame CornerRadius="8"
+                           HasShadow="True"
+                           BorderColor="#D1D1D1"
+                           Padding="15"
+                           Margin="10"
+                           BackgroundColor="White"
+                           WidthRequest="300" 
+                           MinimumHeightRequest="120">
+
+                        <VerticalStackLayout Spacing="5" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Label Text="{Binding Nombre}"
+                                   FontAttributes="Bold"
+                                   FontSize="16"
+                                   TextColor="Black"
+                                   HorizontalTextAlignment="Center"
+                                   LineBreakMode="WordWrap"/>
+
+                            <Label Text="{Binding Sede.Nombre}"
+                                   FontSize="12"
+                                   TextColor="Gray"
+                                   HorizontalTextAlignment="Center"
+                                   LineBreakMode="WordWrap"/>
+
+                            <Label Text="{Binding Ganancias, StringFormat='{0:N0}€'}"
+                                   FontSize="13"
+                                   TextColor="#27ae60"
+                                   FontAttributes="Bold"
+                                   HorizontalTextAlignment="Center"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </FlexLayout>
+    </ScrollView>
 </ContentPage>
