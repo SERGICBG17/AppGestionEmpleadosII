@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace AppGestionEmpleadosII.UI.PagesViewModels;
+namespace AppGestionEmpleadosII.UI.PagesModel;
 public partial class MainPageModel : ObservableObject
 {
     [ObservableProperty]

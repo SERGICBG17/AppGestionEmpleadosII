@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AppGestionEmpleadosII.UI.PagesModel"
+             x:Class="AppGestionEmpleadosII.UI.Pages.Detalle.DetalleEmpleadoPage"
+             Title="Detalle de Empleado">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Frame CornerRadius="100" 
+                   HeightRequest="200" 
+                   WidthRequest="200" 
+                   HorizontalOptions="Center" 
+                   Padding="0" 
+                   IsClippedToBounds="True"
+                   BorderColor="#D1D1D1">
+                <Image Source="{Binding EmpleadoDetalle.ImagenUri}" 
+                       Aspect="AspectFill" />
+            </Frame>
+
+            <VerticalStackLayout Spacing="5" HorizontalOptions="Center">
+                <Label Text="{Binding EmpleadoDetalle.Nombre}" 
+                       FontSize="28" 
+                       FontAttributes="Bold" 
+                       HorizontalTextAlignment="Center"/>
+                <Label Text="{Binding EmpleadoDetalle.Apellido}" 
+                       FontSize="22" 
+                       TextColor="Gray"
+                       HorizontalTextAlignment="Center"/>
+            </VerticalStackLayout>
+
+            <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+                <VerticalStackLayout HorizontalOptions="Center">
+                    <Label Text="Edad" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <Label Text="{Binding EmpleadoDetalle.Edad}" HorizontalTextAlignment="Center"/>
+                </VerticalStackLayout>
+                <Line Y2="30" Stroke="Gray" VerticalOptions="Center"/>
+                <VerticalStackLayout HorizontalOptions="Center">
+                    <Label Text="Género" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <Label Text="{Binding EmpleadoDetalle.Genero}" HorizontalTextAlignment="Center"/>
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+
+            <BoxView HeightRequest="1" Color="#E0E0E0" />
+
+            <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto, Auto, Auto" RowSpacing="15" ColumnSpacing="10">
+                <Label Grid.Row="0" Grid.Column="0" Text="Departamento:" FontAttributes="Bold" />
+                <Label Grid.Row="0" Grid.Column="1" Text="{Binding EmpleadoDetalle.Departamento.Nombre}" />
+
+                <Label Grid.Row="1" Grid.Column="0" Text="Correo:" FontAttributes="Bold" />
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding EmpleadoDetalle.Correo}" />
+
+                <Label Grid.Row="2" Grid.Column="0" Text="Teléfono:" FontAttributes="Bold" />
+                <Label Grid.Row="2" Grid.Column="1" Text="{Binding EmpleadoDetalle.Telefono}" />
+
+                <Label Grid.Row="3" Grid.Column="0" Text="Sueldo:" FontAttributes="Bold" />
+                <Label Grid.Row="3" Grid.Column="1" Text="{Binding EmpleadoDetalle.sueldo, StringFormat='{0:N2}€'}" TextColor="#27ae60" FontAttributes="Bold" />
+            </Grid>
+
+            <Button Text="Volver a la lista"
+                    Command="{Binding VolverCommand}"
+                    BackgroundColor="#512BD4"
+                    TextColor="White"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    Margin="0,10,0,0"
+                    HorizontalOptions="FillAndExpand" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

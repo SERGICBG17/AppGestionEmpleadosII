@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AppGestionEmpleadosII.UI.PagesModel"
              x:Class="AppGestionEmpleadosII.UI.Pages.DepartamentosPage"
              Title="Departamentos">
 
@@ -15,36 +16,43 @@
 
             <BindableLayout.ItemTemplate>
                 <DataTemplate>
-                    <Frame CornerRadius="8"
-                           HasShadow="True"
-                           BorderColor="#D1D1D1"
-                           Padding="15"
-                           Margin="10"
-                           BackgroundColor="White"
-                           WidthRequest="300" 
-                           MinimumHeightRequest="120">
+                    <Grid Padding="5">
+                        <Frame CornerRadius="8"
+                               HasShadow="True"
+                               BorderColor="#D1D1D1"
+                               Padding="15"
+                               Margin="10"
+                               BackgroundColor="White"
+                               WidthRequest="300" 
+                               MinimumHeightRequest="120">
 
-                        <VerticalStackLayout Spacing="5" HorizontalOptions="Center" VerticalOptions="Center">
-                            <Label Text="{Binding Nombre}"
-                                   FontAttributes="Bold"
-                                   FontSize="16"
-                                   TextColor="Black"
-                                   HorizontalTextAlignment="Center"
-                                   LineBreakMode="WordWrap"/>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:DepartamentosPageModel}}, Path=IrADetalleCommand}"
+                                    CommandParameter="{Binding .}" />
+                            </Frame.GestureRecognizers>
 
-                            <Label Text="{Binding Sede.Nombre}"
-                                   FontSize="12"
-                                   TextColor="Gray"
-                                   HorizontalTextAlignment="Center"
-                                   LineBreakMode="WordWrap"/>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroupList>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal" />
+                                        <VisualState x:Name="PointerOver">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="#F0F0F0" />
+                                                <Setter Property="Scale" Value="1.02" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateGroupList>
+                            </VisualStateManager.VisualStateGroups>
 
-                            <Label Text="{Binding Ganancias, StringFormat='{0:N0}€'}"
-                                   FontSize="13"
-                                   TextColor="#27ae60"
-                                   FontAttributes="Bold"
-                                   HorizontalTextAlignment="Center"/>
-                        </VerticalStackLayout>
-                    </Frame>
+                            <VerticalStackLayout Spacing="5" HorizontalOptions="Center" VerticalOptions="Center" InputTransparent="True">
+                                <Label Text="{Binding Nombre}" FontAttributes="Bold" FontSize="16" TextColor="Black" HorizontalTextAlignment="Center" LineBreakMode="WordWrap"/>
+                                <Label Text="{Binding Sede.Nombre}" FontSize="12" TextColor="Gray" HorizontalTextAlignment="Center" LineBreakMode="WordWrap"/>
+                                <Label Text="{Binding Ganancias, StringFormat='{0:N0}€'}" FontSize="13" TextColor="#27ae60" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </Grid>
                 </DataTemplate>
             </BindableLayout.ItemTemplate>
         </FlexLayout>

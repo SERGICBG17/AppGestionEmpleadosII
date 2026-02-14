@@ -1,8 +1,9 @@
 ﻿using AppGestionEmpleadosII.Models;
 using AppGestionEmpleadosII.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
-namespace AppGestionEmpleadosII.UI.PagesViewModels;
+namespace AppGestionEmpleadosII.UI.PagesModel;
 
 public partial class DepartamentosPageModel : ObservableObject
 {
@@ -19,5 +20,15 @@ public partial class DepartamentosPageModel : ObservableObject
         {
             Departamentos = new List<Departamento>(datos);
         }
+    }
+
+    [RelayCommand]
+    public async Task IrADetalle(Departamento deptoSeleccionado)
+    {
+        if (deptoSeleccionado == null) return;
+
+        var parametros = new Dictionary<string, object>{{ "DepartamentoObjeto", deptoSeleccionado }};
+
+        await Shell.Current.GoToAsync("DetalleDepartamentoPage", parametros);
     }
 }

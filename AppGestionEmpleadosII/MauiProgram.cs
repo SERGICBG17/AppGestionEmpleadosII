@@ -1,7 +1,9 @@
 ﻿using AppGestionEmpleadosII.Models;
 using AppGestionEmpleadosII.Services;
 using AppGestionEmpleadosII.UI.Pages;
-using AppGestionEmpleadosII.UI.PagesViewModels;
+using AppGestionEmpleadosII.UI.Pages.Detalle;
+using AppGestionEmpleadosII.UI.PagesModel;
+using AppGestionEmpleadosII.UI.PagesModel.Detalle;
 using Microsoft.Extensions.Logging;
 
 namespace AppGestionEmpleadosII
@@ -34,12 +36,20 @@ namespace AppGestionEmpleadosII
             builder.Services.AddTransient<SedesPageModel>();
             builder.Services.AddTransient<SettingsPageModel>();
 
+            builder.Services.AddTransient<DetalleEmpleadoPageModel>();
+            builder.Services.AddTransient<DetalleDepartamentoPageModel>();
+            builder.Services.AddTransient<DetalleSedePageModel>();
+
             builder.Services.AddTransient<MainPage>();
             builder.Services.AddTransient<DepartamentosPage>();
             builder.Services.AddTransient<EmpleadosPage>();
             builder.Services.AddTransient<GraficosPage>();
             builder.Services.AddTransient<SedesPage>();
             builder.Services.AddTransient<SettingsPage>();
+
+            builder.Services.AddTransient<DetalleEmpleadoPage>();
+            builder.Services.AddTransient<DetalleDepartamentoPage>();
+            builder.Services.AddTransient<DetalleSedePage>();
 
             return builder.Build();
         }

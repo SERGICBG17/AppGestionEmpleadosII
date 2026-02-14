@@ -1,58 +1,78 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AppGestionEmpleadosII.UI.PagesModel"
              x:Class="AppGestionEmpleadosII.UI.Pages.EmpleadosPage"
              Title="Empleados">
 
-        <ScrollView>
-            <FlexLayout BindableLayout.ItemsSource="{Binding Empleados}"
+    <ScrollView>
+        <FlexLayout BindableLayout.ItemsSource="{Binding Empleados}"
                     Wrap="Wrap"
                     Direction="Row"
                     JustifyContent="Start"
-                    AlignItems="Start"
-                    AlignContent="Start"
                     Margin="10">
 
-                <BindableLayout.ItemTemplate>
-                    <DataTemplate>
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="5">
                         <Frame CornerRadius="8"
-                           HasShadow="True"
-                           BorderColor="#D1D1D1"
-                           Padding="8"
-                           Margin="5"
-                           BackgroundColor="White"
-                           WidthRequest="220"
-                           HeightRequest="100">
+                               HasShadow="True"
+                               BorderColor="#D1D1D1"
+                               Padding="8"
+                               BackgroundColor="White"
+                               WidthRequest="220"
+                               HeightRequest="100">
 
-                            <HorizontalStackLayout Spacing="10">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:EmpleadosPageModel}}, Path=IrADetalleCommand}"
+                                    CommandParameter="{Binding .}" />
+                            </Frame.GestureRecognizers>
+
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroupList>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal" />
+                                        <VisualState x:Name="PointerOver">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="#F0F0F0" />
+                                                <Setter Property="Scale" Value="1.02" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateGroupList>
+                            </VisualStateManager.VisualStateGroups>
+
+                            <HorizontalStackLayout Spacing="10" InputTransparent="True">
                                 <Border StrokeShape="RoundRectangle 4"
-                                    StrokeThickness="0"
-                                    WidthRequest="80"
-                                    HeightRequest="80">
+                                        StrokeThickness="0"
+                                        WidthRequest="80"
+                                        HeightRequest="80">
                                     <Image Source="{Binding ImagenUri}"
-                                       Aspect="AspectFill"
-                                       WidthRequest="80"
-                                       HeightRequest="80" />
+                                           Aspect="AspectFill"
+                                           WidthRequest="80"
+                                           HeightRequest="80" />
                                 </Border>
 
                                 <VerticalStackLayout VerticalOptions="Center" Spacing="2">
                                     <Label Text="{Binding Nombre}"
-                                       FontAttributes="Bold"
-                                       FontSize="14"
-                                       TextColor="Black"
-                                       LineBreakMode="TailTruncation"
-                                       WidthRequest="110"/>
+                                           FontAttributes="Bold"
+                                           FontSize="14"
+                                           TextColor="Black"
+                                           LineBreakMode="TailTruncation"
+                                           WidthRequest="110"/>
 
                                     <Label Text="{Binding Departamento.Nombre}"
-                                       FontSize="11"
-                                       TextColor="Gray"
-                                       LineBreakMode="CharacterWrap"
-                                       WidthRequest="110"/>
+                                           FontSize="11"
+                                           TextColor="Gray"
+                                           LineBreakMode="CharacterWrap"
+                                           WidthRequest="110"/>
                                 </VerticalStackLayout>
                             </HorizontalStackLayout>
                         </Frame>
-                    </DataTemplate>
-                </BindableLayout.ItemTemplate>
-            </FlexLayout>
-        </ScrollView>
-    </ContentPage>
+                    </Grid>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </FlexLayout>
+    </ScrollView>
+</ContentPage>

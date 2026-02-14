@@ -1,4 +1,4 @@
-using AppGestionEmpleadosII.UI.PagesViewModels;
+using AppGestionEmpleadosII.UI.PagesModel;
 
 namespace AppGestionEmpleadosII.UI.Pages;
 

@@ -1,8 +1,9 @@
 ﻿using AppGestionEmpleadosII.Models;
 using AppGestionEmpleadosII.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
-namespace AppGestionEmpleadosII.UI.PagesViewModels;
+namespace AppGestionEmpleadosII.UI.PagesModel;
 
 public partial class SedesPageModel : ObservableObject
 {
@@ -20,4 +21,15 @@ public partial class SedesPageModel : ObservableObject
             Sedes = new List<Sede>(datos);
         }
     }
+
+    [RelayCommand]
+    public async Task IrADetalle(Sede sedeSeleccionada)
+    {
+        if (sedeSeleccionada == null) return;
+
+        var parametros = new Dictionary<string, object>{{ "SedeObjeto", sedeSeleccionada }};
+
+        await Shell.Current.GoToAsync("DetalleSedePage", parametros);
+    }
+
 }

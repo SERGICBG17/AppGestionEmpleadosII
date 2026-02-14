@@ -28,7 +28,38 @@ public class SedeService : IService<Sede>
 
     public List<Sede> GetAll()
     {
-        return client.GetFromJsonAsync<List<Sede>>("http://localhost:8080/sedes/").Result;
+        List<Sede> devolverSedes = new List<Sede>();
+        try
+        {
+            string jsonSedes = client.GetStringAsync("http://localhost:8080/sedes/").Result;
+            List<Sede> sedes = JsonSerializer.Deserialize<List<Sede>>(jsonSedes, serializerOptions);
+
+            string jsonDepts = client.GetStringAsync("http://localhost:8080/departamentos/").Result;
+            List<Departamento> departamentos = JsonSerializer.Deserialize<List<Departamento>>(jsonDepts, serializerOptions);
+
+            if (sedes != null && departamentos != null)
+            {
+                foreach (Sede s in sedes)
+                {
+                    s.Departamentos = new List<Departamento>();
+                    foreach (Departamento d in departamentos)
+                    {
+                        if (d.SedeId == s.Id)
+                        {
+                            s.Departamentos.Add(d);
+                        }
+                    }
+                }
+            }
+
+            if (sedes != null)
+            {
+                devolverSedes = sedes;
+            }
+
+        }
+        catch (Exception ex){}
+        return devolverSedes;
     }
 
     public void Update(Sede item)
