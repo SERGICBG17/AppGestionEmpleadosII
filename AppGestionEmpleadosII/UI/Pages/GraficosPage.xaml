@@ -1,12 +1,25 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AppGestionEmpleadosII.UI.PagesModel"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
              x:Class="AppGestionEmpleadosII.UI.Pages.GraficosPage"
-             Title="GraficosPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             x:DataType="vm:GraficosPageModel"
+             Title="Estadísticas">
+
+    <Grid Padding="20">
+        <chart:SfCircularChart Title="Empleados por Departamento">
+            <chart:SfCircularChart.Legend>
+                <chart:ChartLegend Placement="Bottom"/>
+            </chart:SfCircularChart.Legend>
+
+            <chart:PieSeries ItemsSource="{Binding Departamentos}" 
+                             XBindingPath="Nombre" 
+                             YBindingPath="Empleados.Count"
+                             ShowDataLabels="True">
+                <chart:PieSeries.DataLabelSettings>
+                    <chart:CircularDataLabelSettings LabelPosition="Outside"/>
+                </chart:PieSeries.DataLabelSettings>
+            </chart:PieSeries>
+        </chart:SfCircularChart>
+    </Grid>
 </ContentPage>

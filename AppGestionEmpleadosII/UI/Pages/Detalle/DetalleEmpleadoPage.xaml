@@ -59,7 +59,6 @@
 
             <Button Text="Volver a la lista"
                     Command="{Binding VolverCommand}"
-                    BackgroundColor="#512BD4"
                     TextColor="White"
                     CornerRadius="25"
                     HeightRequest="50"

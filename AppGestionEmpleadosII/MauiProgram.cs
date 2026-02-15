@@ -5,6 +5,7 @@ using AppGestionEmpleadosII.UI.Pages.Detalle;
 using AppGestionEmpleadosII.UI.PagesModel;
 using AppGestionEmpleadosII.UI.PagesModel.Detalle;
 using Microsoft.Extensions.Logging;
+using Syncfusion.Maui.Core.Hosting;
 
 namespace AppGestionEmpleadosII
 {
@@ -15,6 +16,7 @@ namespace AppGestionEmpleadosII
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .ConfigureSyncfusionCore()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
