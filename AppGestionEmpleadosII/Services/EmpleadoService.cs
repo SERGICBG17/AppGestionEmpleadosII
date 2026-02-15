@@ -63,7 +63,10 @@ public class EmpleadoService : IService<Empleado>
             }
 
         }
-        catch (Exception ex){}
+        catch (Exception ex)
+        {
+            Shell.Current.DisplayAlert("Error", "No se pudieron cargar los datos: " + ex.Message, "Aceptar");
+        }
 
         return devolverEmpleados;
     }

@@ -76,7 +76,10 @@ public class DepartamentoService : IService<Departamento>
             }
 
         }
-        catch(Exception ex){ }
+        catch(Exception ex)
+        {
+            Shell.Current.DisplayAlert("Error", "No se pudieron cargar los datos: " + ex.Message, "Aceptar");
+        }
 
         return devolverDepartamentos;
     }
