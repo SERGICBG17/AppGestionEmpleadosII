@@ -18,13 +18,13 @@
                 <DataTemplate>
                     <Grid Padding="5">
                         <Frame CornerRadius="8"
-                               HasShadow="True"
-                               BorderColor="#D1D1D1"
+                               HasShadow="False"
                                Padding="15"
                                Margin="10"
-                               BackgroundColor="White"
                                WidthRequest="300" 
-                               MinimumHeightRequest="120">
+                               MinimumHeightRequest="120"
+                               BackgroundColor="Transparent"
+                               BorderColor="Gray">
 
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer 
@@ -38,7 +38,7 @@
                                         <VisualState x:Name="Normal" />
                                         <VisualState x:Name="PointerOver">
                                             <VisualState.Setters>
-                                                <Setter Property="BackgroundColor" Value="#F0F0F0" />
+                                                <Setter Property="BackgroundColor" Value="#15808080" />
                                                 <Setter Property="Scale" Value="1.02" />
                                             </VisualState.Setters>
                                         </VisualState>
@@ -46,19 +46,22 @@
                                 </VisualStateGroupList>
                             </VisualStateManager.VisualStateGroups>
 
-                            <VerticalStackLayout Spacing="5" HorizontalOptions="Center" VerticalOptions="Center" InputTransparent="True">
+                            <VerticalStackLayout Spacing="5" 
+                                                 HorizontalOptions="Center" 
+                                                 VerticalOptions="Center" 
+                                                 InputTransparent="True">
+
                                 <Label Text="{Binding Nombre}" 
                                        FontAttributes="Bold" 
                                        FontSize="16" 
-                                       TextColor="Black" 
                                        HorizontalTextAlignment="Center" 
                                        LineBreakMode="WordWrap"/>
 
                                 <Label Text="{Binding Direccion}" 
                                        FontSize="12" 
-                                       TextColor="Gray" 
                                        HorizontalTextAlignment="Center" 
-                                       LineBreakMode="WordWrap"/>
+                                       LineBreakMode="WordWrap"
+                                       Opacity="0.8"/>
 
                             </VerticalStackLayout>
                         </Frame>

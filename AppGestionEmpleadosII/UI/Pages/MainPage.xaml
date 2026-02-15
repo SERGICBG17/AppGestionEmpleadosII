@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:AppGestionEmpleadosII.UI.PagesModel"
              x:Class="AppGestionEmpleadosII.UI.Pages.MainPage"
+             x:DataType="vm:MainPageModel"
              Title="Home">
 
     <ScrollView>
@@ -10,7 +11,8 @@
 
             <FlexLayout JustifyContent="Center" Wrap="Wrap" Margin="0,20,0,10">
                 <Grid Padding="10">
-                    <Frame CornerRadius="50" WidthRequest="100" HeightRequest="100" Padding="0" HasShadow="True" BorderColor="#D1D1D1">
+                    <Frame CornerRadius="50" WidthRequest="100" HeightRequest="100" Padding="0" 
+                           HasShadow="False" BorderColor="Gray" BackgroundColor="Transparent">
                         <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
                             <Label Text="{Binding TotalEmpleados}" FontSize="22" FontAttributes="Bold" TextColor="#512BD4" HorizontalOptions="Center"/>
                             <Label Text="Empleados" FontSize="11" TextColor="Gray" HorizontalOptions="Center"/>
@@ -18,15 +20,17 @@
                     </Frame>
                 </Grid>
                 <Grid Padding="10">
-                    <Frame CornerRadius="50" WidthRequest="100" HeightRequest="100" Padding="0" HasShadow="True" BorderColor="#D1D1D1">
+                    <Frame CornerRadius="50" WidthRequest="100" HeightRequest="100" Padding="0" 
+                           HasShadow="False" BorderColor="Gray" BackgroundColor="Transparent">
                         <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
-                            <Label Text="{Binding TotalDepartamentos}" FontSize="22" FontAttributes="Bold" TextColor="#27ae60" HorizontalOptions="Center"/>
+                            <Label Text="{Binding TotalDepartamentos}" FontSize="22" FontAttributes="Bold" TextColor="#2ECC71" HorizontalOptions="Center"/>
                             <Label Text="Depts" FontSize="11" TextColor="Gray" HorizontalOptions="Center"/>
                         </VerticalStackLayout>
                     </Frame>
                 </Grid>
                 <Grid Padding="10">
-                    <Frame CornerRadius="50" WidthRequest="100" HeightRequest="100" Padding="0" HasShadow="True" BorderColor="#D1D1D1">
+                    <Frame CornerRadius="50" WidthRequest="100" HeightRequest="100" Padding="0" 
+                           HasShadow="False" BorderColor="Gray" BackgroundColor="Transparent">
                         <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
                             <Label Text="{Binding TotalSedes}" FontSize="22" FontAttributes="Bold" TextColor="#e67e22" HorizontalOptions="Center"/>
                             <Label Text="Sedes" FontSize="11" TextColor="Gray" HorizontalOptions="Center"/>
@@ -40,7 +44,8 @@
             <FlexLayout Wrap="Wrap" Direction="Row" JustifyContent="Center" AlignItems="Center" Margin="10">
 
                 <Grid Padding="8">
-                    <Frame CornerRadius="12" HasShadow="True" BorderColor="#D1D1D1" Padding="10" BackgroundColor="White" WidthRequest="280" HeightRequest="110">
+                    <Frame CornerRadius="12" HasShadow="False" BorderColor="Gray" Padding="10" 
+                           BackgroundColor="Transparent" WidthRequest="280" HeightRequest="110">
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding IrAEmpleadosCommand}" />
                         </Frame.GestureRecognizers>
@@ -50,22 +55,23 @@
                                     <VisualState x:Name="Normal" />
                                     <VisualState x:Name="PointerOver">
                                         <VisualState.Setters>
-                                            <Setter Property="BackgroundColor" Value="#F5F5F5" />
+                                            <Setter Property="BackgroundColor" Value="#15808080" />
                                             <Setter Property="Scale" Value="1.03" />
                                         </VisualState.Setters>
                                     </VisualState>
                                 </VisualStateGroup>
                             </VisualStateGroupList>
                         </VisualStateManager.VisualStateGroups>
-                        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
-                            <Label Text="EMPLEADOS" FontAttributes="Bold" FontSize="16" TextColor="Black" HorizontalTextAlignment="Center"/>
+                        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" InputTransparent="True">
+                            <Label Text="EMPLEADOS" FontAttributes="Bold" FontSize="16" HorizontalTextAlignment="Center"/>
                             <Label Text="Ver Plantilla" FontSize="12" TextColor="Gray" HorizontalTextAlignment="Center"/>
                         </VerticalStackLayout>
                     </Frame>
                 </Grid>
 
                 <Grid Padding="8">
-                    <Frame CornerRadius="12" HasShadow="True" BorderColor="#D1D1D1" Padding="10" BackgroundColor="White" WidthRequest="280" HeightRequest="110">
+                    <Frame CornerRadius="12" HasShadow="False" BorderColor="Gray" Padding="10" 
+                           BackgroundColor="Transparent" WidthRequest="280" HeightRequest="110">
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding IrADepartamentosCommand}" />
                         </Frame.GestureRecognizers>
@@ -75,22 +81,23 @@
                                     <VisualState x:Name="Normal" />
                                     <VisualState x:Name="PointerOver">
                                         <VisualState.Setters>
-                                            <Setter Property="BackgroundColor" Value="#F5F5F5" />
+                                            <Setter Property="BackgroundColor" Value="#15808080" />
                                             <Setter Property="Scale" Value="1.03" />
                                         </VisualState.Setters>
                                     </VisualState>
                                 </VisualStateGroup>
                             </VisualStateGroupList>
                         </VisualStateManager.VisualStateGroups>
-                        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
-                            <Label Text="DEPARTAMENTOS" FontAttributes="Bold" FontSize="16" TextColor="Black" HorizontalTextAlignment="Center"/>
+                        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" InputTransparent="True">
+                            <Label Text="DEPARTAMENTOS" FontAttributes="Bold" FontSize="16" HorizontalTextAlignment="Center"/>
                             <Label Text="Organización" FontSize="12" TextColor="Gray" HorizontalTextAlignment="Center"/>
                         </VerticalStackLayout>
                     </Frame>
                 </Grid>
 
                 <Grid Padding="8">
-                    <Frame CornerRadius="12" HasShadow="True" BorderColor="#D1D1D1" Padding="10" BackgroundColor="White" WidthRequest="280" HeightRequest="110">
+                    <Frame CornerRadius="12" HasShadow="False" BorderColor="Gray" Padding="10" 
+                           BackgroundColor="Transparent" WidthRequest="280" HeightRequest="110">
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding IrASedesCommand}" />
                         </Frame.GestureRecognizers>
@@ -100,22 +107,23 @@
                                     <VisualState x:Name="Normal" />
                                     <VisualState x:Name="PointerOver">
                                         <VisualState.Setters>
-                                            <Setter Property="BackgroundColor" Value="#F5F5F5" />
+                                            <Setter Property="BackgroundColor" Value="#15808080" />
                                             <Setter Property="Scale" Value="1.03" />
                                         </VisualState.Setters>
                                     </VisualState>
                                 </VisualStateGroup>
                             </VisualStateGroupList>
                         </VisualStateManager.VisualStateGroups>
-                        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
-                            <Label Text="SEDES" FontAttributes="Bold" FontSize="16" TextColor="Black" HorizontalTextAlignment="Center"/>
+                        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" InputTransparent="True">
+                            <Label Text="SEDES" FontAttributes="Bold" FontSize="16" HorizontalTextAlignment="Center"/>
                             <Label Text="Ubicaciones" FontSize="12" TextColor="Gray" HorizontalTextAlignment="Center"/>
                         </VerticalStackLayout>
                     </Frame>
                 </Grid>
 
                 <Grid Padding="8">
-                    <Frame CornerRadius="12" HasShadow="True" BorderColor="#D1D1D1" Padding="10" BackgroundColor="White" WidthRequest="280" HeightRequest="110">
+                    <Frame CornerRadius="12" HasShadow="False" BorderColor="Gray" Padding="10" 
+                           BackgroundColor="Transparent" WidthRequest="280" HeightRequest="110">
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding IrAGraficosCommand}" />
                         </Frame.GestureRecognizers>
@@ -125,15 +133,15 @@
                                     <VisualState x:Name="Normal" />
                                     <VisualState x:Name="PointerOver">
                                         <VisualState.Setters>
-                                            <Setter Property="BackgroundColor" Value="#F5F5F5" />
+                                            <Setter Property="BackgroundColor" Value="#15808080" />
                                             <Setter Property="Scale" Value="1.03" />
                                         </VisualState.Setters>
                                     </VisualState>
                                 </VisualStateGroup>
                             </VisualStateGroupList>
                         </VisualStateManager.VisualStateGroups>
-                        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
-                            <Label Text="GRÁFICOS" FontAttributes="Bold" FontSize="16" TextColor="Black" HorizontalTextAlignment="Center"/>
+                        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" InputTransparent="True">
+                            <Label Text="GRÁFICOS" FontAttributes="Bold" FontSize="16" HorizontalTextAlignment="Center"/>
                             <Label Text="Análisis y datos" FontSize="12" TextColor="Gray" HorizontalTextAlignment="Center"/>
                         </VerticalStackLayout>
                     </Frame>

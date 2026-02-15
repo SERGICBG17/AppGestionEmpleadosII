@@ -16,12 +16,12 @@
                 <DataTemplate>
                     <Grid Padding="5">
                         <Frame CornerRadius="8"
-                               HasShadow="True"
-                               BorderColor="#D1D1D1"
+                               HasShadow="False"
                                Padding="8"
-                               BackgroundColor="White"
                                WidthRequest="220"
-                               HeightRequest="100">
+                               HeightRequest="100"
+                               BackgroundColor="Transparent"
+                               BorderColor="Gray">
 
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer 
@@ -35,7 +35,7 @@
                                         <VisualState x:Name="Normal" />
                                         <VisualState x:Name="PointerOver">
                                             <VisualState.Setters>
-                                                <Setter Property="BackgroundColor" Value="#F0F0F0" />
+                                                <Setter Property="BackgroundColor" Value="#10808080" />
                                                 <Setter Property="Scale" Value="1.02" />
                                             </VisualState.Setters>
                                         </VisualState>
@@ -45,7 +45,8 @@
 
                             <HorizontalStackLayout Spacing="10" InputTransparent="True">
                                 <Border StrokeShape="RoundRectangle 4"
-                                        StrokeThickness="0"
+                                        StrokeThickness="1"
+                                        Stroke="Gray"
                                         WidthRequest="80"
                                         HeightRequest="80">
                                     <Image Source="{Binding ImagenUri}"
@@ -58,15 +59,14 @@
                                     <Label Text="{Binding Nombre}"
                                            FontAttributes="Bold"
                                            FontSize="14"
-                                           TextColor="Black"
                                            LineBreakMode="TailTruncation"
                                            WidthRequest="110"/>
 
                                     <Label Text="{Binding Departamento.Nombre}"
                                            FontSize="11"
-                                           TextColor="Gray"
                                            LineBreakMode="CharacterWrap"
-                                           WidthRequest="110"/>
+                                           WidthRequest="110"
+                                           Opacity="0.7"/>
                                 </VerticalStackLayout>
                             </HorizontalStackLayout>
                         </Frame>

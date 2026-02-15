@@ -1,12 +1,26 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AppGestionEmpleadosII.UI.PagesModel"
              x:Class="AppGestionEmpleadosII.UI.Pages.SettingsPage"
-             Title="SettingsPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Settings"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             x:DataType="vm:SettingViewModel"
+             Title="Apariencia">
+
+    <VerticalStackLayout Spacing="20" Padding="30" VerticalOptions="Center">
+
+        <Label Text="Configuración de Apariencia" 
+           FontSize="20" 
+           HorizontalOptions="Center" />
+
+        <Picker ItemsSource="{Binding Temas}"
+                        SelectedItem="{Binding TemaSeleccionado}"
+                        WidthRequest="250"
+                        HorizontalOptions="Center" />
+
+        <Button Text="GUARDAR CAMBIOS"
+            Command="{Binding SaveSettingsCommand}"
+            WidthRequest="200"
+            HorizontalOptions="Center"
+            Margin="0,20" />
+
     </VerticalStackLayout>
 </ContentPage>

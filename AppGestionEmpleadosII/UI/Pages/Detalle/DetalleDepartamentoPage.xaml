@@ -15,14 +15,14 @@
         </HorizontalStackLayout>
    
 
-        <BoxView HeightRequest="1" Color="Silver" />
+        <BoxView HeightRequest="1" />
 
         <Label Text="Correo:" FontAttributes="Bold" />
         <Label Text="{Binding DepartamentoDetalle.Correo}" />
         <Label Text="Ganancias:" FontAttributes="Bold" />
         <Label Text="{Binding DepartamentoDetalle.Ganancias}" />
 
-        <BoxView HeightRequest="1" Color="Silver" />
+        <BoxView HeightRequest="1" />
 
         <Label Text="Empleados en este departamento:" FontAttributes="Bold" FontSize="18" />
 
