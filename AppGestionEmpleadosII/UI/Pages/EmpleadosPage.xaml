@@ -7,10 +7,11 @@
 
     <ScrollView>
         <FlexLayout BindableLayout.ItemsSource="{Binding Empleados}"
-                    Wrap="Wrap"
-                    Direction="Row"
-                    JustifyContent="Start"
-                    Margin="10">
+            Wrap="Wrap"
+            Direction="Row"
+            JustifyContent="SpaceEvenly" AlignContent="Start"
+            AlignItems="Start"
+            Margin="10">
 
             <BindableLayout.ItemTemplate>
                 <DataTemplate>

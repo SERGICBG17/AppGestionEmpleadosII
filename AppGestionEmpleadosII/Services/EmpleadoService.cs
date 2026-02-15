@@ -33,12 +33,19 @@ public class EmpleadoService : IService<Empleado>
         List<Empleado> devolverEmpleados = new List<Empleado>();
         try
         {
-            HttpResponseMessage empResponse = client.GetAsync("http://localhost:8080/empleados/").Result;
-            string empJson = empResponse.Content.ReadAsStringAsync().Result;
+            string empJson = client.GetStringAsync("http://localhost:8080/empleados/").Result;
+#if ANDROID
+            empJson = client.GetStringAsync("http://10.0.2.2:8080/empleados/").Result;
+#endif
+            
             List<Empleado> empleados = JsonSerializer.Deserialize<List<Empleado>>(empJson, serializerOptions);
 
-            HttpResponseMessage deptResponse = client.GetAsync("http://localhost:8080/departamentos/").Result;
-            string deptJson = deptResponse.Content.ReadAsStringAsync().Result;
+            string deptJson = client.GetStringAsync("http://localhost:8080/departamentos/").Result;
+
+#if ANDROID
+            deptJson = client.GetStringAsync("http://10.0.2.2:8080/departamentos/").Result;
+#endif
+
             List<Departamento> departamentos = JsonSerializer.Deserialize<List<Departamento>>(deptJson, serializerOptions);
 
             

@@ -32,9 +32,16 @@ public class DepartamentoService : IService<Departamento>
         try
         {
             string jsonDepts = client.GetStringAsync("http://localhost:8080/departamentos/").Result;
+
+#if ANDROID
+            jsonDepts = client.GetStringAsync("http://10.0.2.2:8080/departamentos/").Result;
+#endif
             List<Departamento> departamentos = JsonSerializer.Deserialize<List<Departamento>>(jsonDepts, serializerOptions);
 
             string jsonSedes = client.GetStringAsync("http://localhost:8080/sedes/").Result;
+#if ANDROID
+            jsonSedes = client.GetStringAsync("http://10.0.2.2:8080/sedes/").Result;
+#endif
             List<Sede> sedes = JsonSerializer.Deserialize<List<Sede>>(jsonSedes, serializerOptions);
 
             string jsonEmpleados = client.GetStringAsync("http://localhost:8080/empleados/").Result;
