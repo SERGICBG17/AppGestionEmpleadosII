@@ -2,6 +2,10 @@
 
 Aplicación de gestión de empleados desarrollada con .NET MAUI que permite administrar la información de empleados de manera eficiente a través de una interfaz multiplataforma.
 
+
+<img width="1083" height="639" alt="Diseño sin título (1)" src="https://github.com/user-attachments/assets/25f2cca2-dd60-4536-892e-88cc7d8e65de" />
+
+
 ## Descripción
 
 Esta aplicación forma parte de un sistema completo de gestión de empleados que consta de dos componentes principales:
